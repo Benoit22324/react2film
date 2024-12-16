@@ -76,7 +76,6 @@ function App() {
 }
 
 const FilmDetails = ({film}) => {
-  console.log(film)
   return <>
     <div>
       <h2>{film.title}</h2>
