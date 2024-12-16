@@ -67,20 +67,22 @@ function App() {
       {
         loading && <p>Chargement des films ...</p>
       }
-      {
-        filmsList ? !loading && filmsList.results.map(film => <FilmDetails key={film.id} film={film}/>)
-        : <p>Aucun film trouvé</p>
-      }
+      <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "0.5rem", marginTop: "1.5em"}}>
+        {
+          filmsList ? !loading && filmsList.results.map(film => <FilmDetails key={film.id} film={film}/>)
+          : <p>Aucun film trouvé</p>
+        }
+      </div>
     </>
   )
 }
 
 const FilmDetails = ({film}) => {
   return <>
-    <div>
+    <div style={{width: "20%", backgroundColor: "#646464", padding: "0.5rem", borderRadius: "10px"}}>
       <h2>{film.title}</h2>
       <p>Note: {film.vote_average}</p>
-      <img src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`} />
+      <img src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`} style={{width: "100%"}} />
     </div>
   </>
 }
