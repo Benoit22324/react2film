@@ -11,7 +11,7 @@ export const Details = ({film, video}) => {
         <div className="flex justify-between mt-8">
             <div className="w-1/2">
                 <h2 className="font-bold text-2xl">Information</h2>
-                <p>Titre EN: {film.title}</p>
+                {film.original_title !== film.title && <p>Titre EN: {film.title}</p>}
                 <p>Genre: {film.genres.map((genre, index) => index > 0 ? <span key={index}>, {genre.name}</span> : <span key={index}>{genre.name}</span>)}</p>
                 <p>Note: {film.vote_average}/10</p>
                 <p>Doublage: {film.spoken_languages.map((language, index) => index > 0 ? <span key={index}>, {language.english_name}</span> : <span key={index}>{language.english_name}</span>)}</p>
