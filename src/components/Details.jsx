@@ -13,8 +13,8 @@ export const Details = ({film, video}) => {
                 <h2 className="font-bold text-2xl">Information</h2>
                 <p>Titre EN: {film.title}</p>
                 <p>Genre: {film.genres.map((genre, index) => index > 0 ? <span key={index}>, {genre.name}</span> : <span key={index}>{genre.name}</span>)}</p>
-                <p>Note: {film.vote_average}</p>
-                <p>VO: {film.spoken_languages.map((language, index) => <span key={index}>{language.english_name}</span>)}</p>
+                <p>Note: {film.vote_average}/10</p>
+                <p>Doublage: {film.spoken_languages.map((language, index) => index > 0 ? <span key={index}>, {language.english_name}</span> : <span key={index}>{language.english_name}</span>)}</p>
                 <p>Popularité: {film.popularity}</p>
             </div>
             <div className="w-1/3">
