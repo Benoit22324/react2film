@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ProfileInfo } from "../components/ProfileInfo";
 
 export const Profile = () => {
     const jwtToken = localStorage.getItem("jwtToken");
@@ -37,11 +38,6 @@ export const Profile = () => {
     return <>
         <h1>Votre Profile</h1>
         {loading && <p>Chargement de votre profile</p>}
-        {user && !loading && <div>
-                <p>Nom: {user.lastName}</p>
-                <p>Prénom: {user.firstName}</p>
-                <p>Age: {user.age}</p>
-                <p>Email: {user.email}</p>
-            </div>}
+        {user && !loading && <ProfileInfo user={user} setUser={setUser} />}
     </>
 }
