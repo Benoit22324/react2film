@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState } from "react"
+import { useAuth } from "../context/AuthContext";
 
 export const Login = () => {
+    const { setIsAuthentificated } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -36,7 +38,8 @@ export const Login = () => {
 
             const response = await axios.post("http://localhost:3002/login", data);
             localStorage.setItem("jwtToken", response.data);
-            
+            setIsAuthentificated(true);
+
             setSuccess("User Connected");
             setError(null);
         } catch(err) {
